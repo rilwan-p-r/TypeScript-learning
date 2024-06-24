@@ -88,3 +88,69 @@ function getStatus1(orderId, status) {
     console.log(orderId, '==', statusType1[status]);
 }
 getStatus1('12345', 'PENDING');
+// Readonly
+var userDetails1 = {
+    name: 'rilwan',
+    age: 23,
+    salary: 88000
+};
+// userDetails1.name='ril'
+// Partial
+var userDetails2 = {
+    name: 'rilwan',
+};
+// Required
+var userDetails3 = {
+    name: 'rilwan',
+    age: 23,
+    salary: 88000
+};
+// Pick
+var userDetails4 = {
+    name: 'john',
+    salary: 88000
+};
+// Omit
+var userDetails5 = {
+    age: 23,
+    salary: 88000
+};
+var status = 'Completed';
+// type Food={
+//   [index:string]:any;
+// }
+var food = {
+    Pizza: 'amzz',
+    burger: 'chickenzz'
+};
+// any/unknown/never/void/null
+var name = ['rose'];
+name.push();
+var name1 = 'rose';
+var newName1 = name1;
+newName1.toLowerCase();
+// never
+function getError(message) {
+    throw new Error(message);
+}
+// void
+function getConsole(message) {
+    console.log(message);
+}
+var obj1 = {
+    name: 'rilwan',
+    getName: function () {
+        console.log("hello ".concat(this.name));
+    }
+};
+obj1.getName();
+// null
+var username = null;
+function get() {
+    if (username) {
+        return username;
+    }
+    else {
+        return 'userNull';
+    }
+}

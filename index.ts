@@ -144,23 +144,88 @@ function getStatus1(orderId:string, status:keyof typeof statusType1){
 getStatus1('12345', 'PENDING')
 
 
-// utility types
+// utility types________
 type User ={
   name:string;
-  age?:number
+  age?:number;
+  salary:number
 }
+// Readonly
 let userDetails1:Readonly<User>={
   name:'rilwan',
-  age:23
+  age:23,
+  salary:88_000
 }
 // userDetails1.name='ril'
-
+// Partial
 let userDetails2:Partial<User>={
   name:'rilwan',
 }
+// Required
 let userDetails3:Required<User>={
   name:'rilwan',
-  age:23
+  age:23,
+  salary:88_000
+}
+// Pick
+let userDetails4:Pick<User, 'name'|'salary'>={
+  name:'john',
+  salary:88_000
+}
+// Omit
+let userDetails5:Omit<User,'name'>={
+  age:23,
+  salary:88_000
+}
+// exclude
+type statusType1 = 'Pending' | 'Completed' | 'Failed'
+const status:Exclude<statusType1, 'Pending'>='Completed'
+
+type Food =Record<string,string>
+// type Food={
+//   [index:string]:any;
+// }
+const food:Food={
+  Pizza:'amzz',
+  burger:'chickenzz'
+}
+// any/unknown/never/void/null
+let name:any=['rose']
+name.push()
+
+let name1:unknown='rose'
+let newName1 =name1 as string
+newName1.toLowerCase()
+
+// never
+function getError(message:string):never{
+  throw new Error(message)
+}
+// void
+function getConsole(message:string):void{
+  console.log(message);
+} 
+type Detail ={
+  name:string;
+  getName:()=>void
+}
+let obj1 : Detail={
+  name:'rilwan',
+  getName(){
+    console.log(`hello ${this.name}`);
+    
+  }
+}
+obj1.getName()
+
+// null
+let username:string | null = null
+function get(){
+  if(username){
+    return username
+  }else{
+    return 'userNull'
+  }
 }
 
 export {}
