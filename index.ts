@@ -1,6 +1,9 @@
 // infer types(implicit types)
 let userName = "rilwan";
 let phoneNumber = 726352415172;
+let a='1'
+let b=2
+// a=b  // not allowed this 
 
 // defining types(explicit types)
 let Name: string = "roony";
@@ -71,7 +74,7 @@ add('2','5')
 
 // generic
 
-function getAge<T>(age:T){
+function getAge<T>(age:T):T{
   return age
 }
 getAge<number>(23)
@@ -103,8 +106,8 @@ function getDetails<T>(details:T):T{
 
 let user=getDetails<userDetails>(userDetails)
 let admin=getDetails<adminDetails>(adminDetails)
-admin.userName
 user.userName
+admin.role
 console.log(user.userName);
 console.log(admin.role);
 
@@ -194,7 +197,7 @@ let name:any=['rose']
 name.push()
 
 let name1:unknown='rose'
-let newName1 =name1 as string
+let newName1 =name1 as string //we can define type in 'unknown' to string or whatever
 newName1.toLowerCase()
 
 // never
